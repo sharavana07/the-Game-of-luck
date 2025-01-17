@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <title>Random Coin Picker</title>
+    <style>
+        /* Reset some basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: "MedievalSharp", serif;
+            background-color: #32222a; /* Dark gray background */
+            color: #f0f8ff; /* Light text color */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            text-align: center;
+        }
+        
+        /* Header Section */
+        header {
+            margin-top: 20px; /* Reduce space at the top */
+        }
+
+        /* Heading Style */
+        .heading {
+            font-family: "MedievalSharp", serif;
+            font-size: 3rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #d4af37, #f9d774, #d4af37); /* Golden gradient */
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px; /* Space below heading */
+        }
+
+        /* Coin Container Style */
+        .coin-container {
+            background-color: #ffffff; /* White background */
+            padding: 12px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: grid;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%; /* Reduce container width */
+            max-width: 600px; /* Constrain maximum width */
+        }
+
+        /* Coin Image Style */
+        .coin-image {
+            padding: 2.5%;
+            width: 100%; /* Increase image size */
+            max-width: 300px; /* Allow the image to be larger */
+            height: auto; /* Adjust height to maintain aspect ratio */
+            object-fit: contain; /* Ensure the image aspect ratio is maintained */
+            border-radius: 15px; /* Rounded corners */
+            border: 1px solid #ddd; /* Subtle border */
+            transition: transform 0.3s ease;
+        }
+
+        /* Button Styles */
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #ffffff;
+            background-color: #32222a;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #583848;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #333333; /* Dark footer background */
+            color: #f0f8ff; /* Light text color */
+            padding: 20px 0;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #f0f8ff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .heading {
+                font-size: 2rem; /* Adjust heading size for mobile */
+            }
+
+            .coin-image {
+                width: 100%; /* Maintain full width on smaller screens */
+                max-width: 200px; /* Constrain maximum width on mobile */
+                height: auto; /* Adjust height for responsiveness */
+            }
+
+            .footer p {
+                font-size: 0.9rem; /* Reduce footer text size for mobile */
+            }
+
+            .footer a {
+                font-size: 1rem; /* Adjust link size for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="heading">Random Coin Picker</h1>
+    </header>
+    <div class="coin-container">
+        <img src="./images/coin.png" alt="Coin Image" class="coin-image" id="coin-image">
+        <button onclick="flipRandomCoin()">Flip a Coin</button>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Random Coin Picker. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function flipRandomCoin() {
+            // Generate a random result (0 for Heads, 1 for Tails)
+            const coinSide = Math.random() < 0.5 ? 'heads' : 'tails';
+            // Update the image source to match the coin side
+            const coinImage = document.getElementById('coin-image');
+            coinImage.src = `images/${coinSide}.png`;
+            coinImage.alt = coinSide.charAt(0).toUpperCase() + coinSide.slice(1);
+        }
+    </script>
+</body>
+</html>
