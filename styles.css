@@ -1,99 +1,110 @@
 /* Reset some basic styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Global styles */
-  body {
-    font-family: "MedievalSharp", serif;
-    background-color: #32222a; /* Dark gray background */
-    color: #f0f8ff; /* Light text color */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 100vh; /* Full viewport height */
-    text-align: center;
-  }
-  
-  /* Header Section */
-  header {
-    margin-top: 50px; /* Add some space at the top */
-  }
-  
-  /* Heading Style */
-  .heading {
-    font-size: 3rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    background: linear-gradient(to right, #d4af37, #f9d774, #d4af37); /* Golden gradient */
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 20px; /* Space below heading */
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* Dice Image Style */
-.dice, .coin, .Cards {
-  padding: 2.5%;
-  width: 25%;
-  max-width: 300px; /* Prevent the image from growing too large */
-  height: 300px; /* Set a fixed height */
-  object-fit: contain; /* Ensure the image aspect ratio is maintained */
+/* Global styles */
+body {
+  font-family: "MedievalSharp", serif;
+  background-color: #32222a; /* Dark gray background */
+  color: #f0f8ff; /* Light text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  text-align: center;
+}
+
+/* Header Section */
+header {
+  margin-top: 50px; /* Add some space at the top */
+}
+
+/* Heading Style */
+.heading {
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #d4af37, #f9d774, #d4af37); /* Golden gradient */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px; /* Space below heading */
+}
+
+/* Image Container */
+.image-container {
+  width: 25%; /* Relative width for responsiveness */
+  max-width: 300px; /* Max size for large screens */
+  height: 300px; /* Fixed height for uniformity */
   border-radius: 35px; /* Rounded corners */
+  overflow: hidden; /* Ensure images do not overflow */
   border: 1px solid #ddd; /* Subtle border */
-  transition: transform 0.3s ease;
+  background-color: #444; /* Fallback background for transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto; /* Center images with margin */
 }
 
-/* Hover effect */
-.dice:hover, .coin:hover, .Cards:hover {
-  transform: scale(1.1); /* Zoom effect on hover */
+/* Images inside the container */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures images fill the container */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover effect for images */
+.image-container img:hover {
+  transform: scale(1.1); /* Zoom effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+}
 
-  /* Footer Styles */
-  .footer {
-    background-color: #333333; /* Dark footer background */
-    color: #f0f8ff; /* Light text color */
-    padding: 20px 0;
-    width: 100%;
-    text-align: center;
-    position: relative;
+/* Footer Styles */
+.footer {
+  background-color: #333333; /* Dark footer background */
+  color: #f0f8ff; /* Light text color */
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.footer p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.footer a {
+  color: #f0f8ff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1.2rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem; /* Adjust heading size for mobile */
   }
-  
+
+  .image-container {
+    width: 50%; /* Adjust container width for smaller screens */
+    height: auto; /* Allow height to adjust dynamically */
+  }
+
   .footer p {
-    font-size: 1rem;
-    margin-bottom: 10px;
+    font-size: 0.9rem; /* Reduce footer text size for mobile */
   }
-  
+
   .footer a {
-    color: #f0f8ff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 1.2rem;
+    font-size: 1rem; /* Adjust link size for mobile */
   }
-  
-  .footer a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .heading {
-      font-size: 2rem; /* Adjust heading size for mobile */
-    }
-  
-    .dice {
-      width: 50%; /* Increase image size for mobile */
-    }
-  
-    .footer p {
-      font-size: 0.9rem; /* Reduce footer text size for mobile */
-    }
-  
-    .footer a {
-      font-size: 1rem; /* Adjust link size for mobile */
-    }
-  }
-  
+}
